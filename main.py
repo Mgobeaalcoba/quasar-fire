@@ -60,13 +60,13 @@ async def top_secret(
                 }
             }
         )]
-) -> Coordinates | Response:
+) -> dict | Response:
     """
     This endpoint receives a list of satellites with the information of the distance and the message that they sent.
-    It returns the coordinates of the point where the message was sent.
+    It returns the coordinates of the point where the message was sent and the complete message.
 
         :param request: Request model with the list of satellites.
-        :return: Coordinates model with the coordinates of the point where the message was sent.
+        :return: Dictionary with the coordinates of the point where the message was sent and the complete message.
     """
     try:
         satellites: List[Satellite] = request.satellites
@@ -74,7 +74,8 @@ async def top_secret(
             SatelliteService.add_satellite(satellite)
 
         coordinates: Coordinates = SatelliteService.get_coordinates(satellites)
-        return coordinates
+        message: str = SatelliteService.get_message(satellites)
+        return {"coordinates": coordinates, "message": message}
     except Exception as e:
         return JSONResponse(status_code=404, content={"message ": str(e)})
 
