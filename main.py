@@ -11,11 +11,6 @@ from typing import Annotated, List
 app = FastAPI()
 
 
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
-
-
 @app.post("/topsecret", response_model=None)
 async def top_secret(
         request: Annotated[Request, Body(
@@ -122,7 +117,3 @@ async def get_satellite(
         return satellite
     except Exception as e:
         return JSONResponse(status_code=404, content={"message ": str(e)})
-
-
-
-
