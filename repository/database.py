@@ -36,7 +36,8 @@ def db_to_satellite(satellite_db):
 
 
 # Crear una base de datos SQLite en memoria y una sesión de SQLAlchemy
-engine = create_engine('sqlite:///databases/satellites.db')
+# engine = create_engine('sqlite:///databases/satellites.db')
+engine = create_engine('sqlite:////Users/mgobea/Documents/Personal_Develop/fuegoQuasarProject/databases/satellites.db')
 Session = sessionmaker(bind=engine)
 
 # Crear la tabla satellites en la base de datos
