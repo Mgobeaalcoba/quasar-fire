@@ -1,11 +1,89 @@
-# Test your FastAPI endpoints
-
-GET http://127.0.0.1:8000/
-Accept: application/json
+# Test your FastAPI endpoints with the following blackbox tests
 
 ###
-
-GET http://127.0.0.1:8000/hello/User
+POST http://127.0.0.1:8000/topsecret
+Content-Type: application/json
 Accept: application/json
 
+{
+  "satellites": [
+    {
+      "name": "kenobi",
+      "distance": 0,
+      "coordinates": {
+        "x": 15,
+        "y": 50
+      },
+      "message": [
+        "Hola",
+        "",
+        "esto",
+        "",
+        "",
+        "mensaje",
+        ""
+      ]
+    },
+    {
+      "name": "skywalker",
+      "distance": 0,
+      "coordinates": {
+        "x": 65,
+        "y": 90
+      },
+      "message": [
+        "",
+        "soldado",
+        "esto",
+        "",
+        "",
+        "mensaje",
+        ""
+      ]
+    },
+    {
+      "name": "sato",
+      "distance": 0,
+      "coordinates": {
+        "x": 23,
+        "y": 180
+      },
+      "message": [
+        "",
+        "soldado",
+        "",
+        "es",
+        "un",
+        "",
+        ""
+      ]
+    }
+  ]
+}
+
 ###
+PUT http://127.0.0.1:8000/topsecret_split/kenobi
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "kenobi",
+  "distance": 0,
+  "coordinates": {
+    "x": 180,
+    "y": 180
+  },
+  "message": [
+    "Este",
+    "es",
+    "otro",
+    "",
+    "",
+    "mensaje",
+    ""
+  ]
+}
+
+###
+GET http://127.0.0.1:8000/topsecret_split/sato
+Accept: application/json

@@ -8,7 +8,27 @@ from services.satellites_services import SatelliteService
 
 from typing import Annotated, List
 
-app = FastAPI()
+app = FastAPI(
+    title="Quasar Fire Project",
+    description="This REST API take the information of the distance and the message that they sent from a list of satellites and returns the coordinates of the point where the message was sent and the complete message. It also allows to update the information of a satellite and to get the information of a satellite.",
+    version="1.0.0",
+    contact={
+        "name": "Mariano Gobea Alcoba",
+        "url": "https://mgobea.pythonanywhere.com/ ",
+        "email": "gobeamariano@gmail.com"
+    },
+    license_info={
+        "name": "MIT License",
+        "url": "https://opensource.org/licenses/MIT"
+    },
+    openapi_tags=[
+        {
+            "name": "Satellites",
+            "description": "Endpoints related to satellites"
+        }
+    ],
+    docs_url="/",
+)
 
 
 @app.post("/topsecret", response_model=None)
