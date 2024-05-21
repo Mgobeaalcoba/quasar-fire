@@ -7,6 +7,9 @@ Base = declarative_base()
 
 
 class SatelliteDB(Base):
+    """
+    This class represents a satellite in the database.
+    """
     __tablename__ = "satellites"
 
     name = Column(String, primary_key=True)
@@ -16,7 +19,12 @@ class SatelliteDB(Base):
     message = Column(String)
 
 
-def satellite_to_db(satellite):
+def satellite_to_db(satellite) -> SatelliteDB:
+    """
+    This function converts a Satellite object to a SatelliteDB object.
+    :param satellite: Satellite object to convert.
+    :return: SatelliteDB object.
+    """
     return SatelliteDB(
         name=satellite.name,
         distance=satellite.distance,
@@ -26,7 +34,12 @@ def satellite_to_db(satellite):
     )
 
 
-def db_to_satellite(satellite_db):
+def db_to_satellite(satellite_db) -> Satellite:
+    """
+    This function converts a SatelliteDB object to a Satellite object.
+    :param satellite_db: SatelliteDB object to convert.
+    :return: Satellite object.
+    """
     return Satellite(
         name=satellite_db.name,
         distance=satellite_db.distance,
@@ -35,10 +48,7 @@ def db_to_satellite(satellite_db):
     )
 
 
-# Crear una base de datos SQLite en memoria y una sesión de SQLAlchemy
-# engine = create_engine('sqlite:///databases/satellites.db')
 engine = create_engine('sqlite:////Users/mgobea/Documents/Personal_Develop/fuegoQuasarProject/databases/satellites.db')
 Session = sessionmaker(bind=engine)
 
-# Crear la tabla satellites en la base de datos
 Base.metadata.create_all(engine)

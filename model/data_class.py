@@ -4,12 +4,17 @@ from .enum_class import SatelliteName
 
 
 class Coordinates(BaseModel):
-    """Coordinates model."""
+    """
+    Coordinates model with the x and y coordinates.
+    """
     x: float
     y: float
 
 
 class Satellite(BaseModel):
+    """
+    Satellite model with the name, distance, coordinates, and message.
+    """
     name: SatelliteName
     distance: float = 0.0
     coordinates: Coordinates
