@@ -1,5 +1,7 @@
 # Quasar Fire Project
 
+![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2FMgobeaalcoba%2Fquasar-fire&label=Visitors&countColor=%23263759)
+
 ## Description
 
 This project is a solution for the "Quasar Fire" challenge. It is a REST API that allows to obtain the position of a distress signal and the message sent by a ship in a given sector of the galaxy.
